@@ -57,7 +57,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="relative text-5xl md:text-6xl font-bold max-w-4xl mx-auto text-[#0F3057]"
         >
-          Centro de Innovación y Ciberseguridad Educativa
+          CENTRO DE INNOVACION Y CIBERSEGURIDAD EDUCATIVA
         </motion.h1>
 
         <p className="relative mt-8 text-lg text-slate-600 max-w-3xl mx-auto">
@@ -87,7 +87,7 @@ export default function Home() {
       {/* LÍNEAS ESTRATÉGICAS */}
       <section id="lineas" className="py-28 px-10 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-16 text-[#0F3057]">
-          Líneas Estratégicas
+          LINEAS ESTRATEGICAS
         </h2>
 
         <div className="grid md:grid-cols-3 gap-10">
@@ -208,7 +208,7 @@ export default function Home() {
       {/* MODELO */}
       <section id="modelo" className="bg-white py-24 px-10 text-center">
         <h2 className="text-3xl font-bold mb-10 text-[#0F3057]">
-          Modelo de Actuación
+          MODELO DE ACTUACIÓN
         </h2>
         <p className="text-slate-600 max-w-4xl mx-auto leading-relaxed">
           El CICE integra formación, investigación aplicada y acompañamiento institucional bajo un enfoque preventivo y colaborativo, contribuyendo al fortalecimiento de la seguridad digital en comunidades educativas.
@@ -218,7 +218,7 @@ export default function Home() {
       {/* ESTADO */}
       <section id="estado" className="bg-gradient-to-r from-[#0F3057] to-[#1E3A5F] py-24 px-10 text-center text-white">
         <h2 className="text-3xl font-bold mb-8">
-          Estado del Proyecto
+          ESTADO DEL PROYECTO
         </h2>
         <p className="max-w-3xl mx-auto text-slate-200">
           Fase conceptual avanzada con estructura estratégica definida y liderazgo identificado. Actualmente en proceso de consolidación operativa y búsqueda de aliados estratégicos y mecanismos de financiación.
@@ -228,7 +228,7 @@ export default function Home() {
       {/* FUNDADOR */}
       <section id="fundador" className="py-24 px-10 bg-slate-50">
         <h2 className="text-3xl font-bold text-center mb-16 text-[#0F3057]">
-          Fundador
+          FUNDADOR
         </h2>
 
         <div className="max-w-4xl mx-auto bg-white p-10 rounded-2xl border border-slate-200 shadow-md">
@@ -247,6 +247,7 @@ export default function Home() {
           Contacto
         </h2>
         <p className="text-slate-600">contacto@cice.org</p>
+        <p className="text-slate-600">3175999993</p>
       </section>
 
     </main>
