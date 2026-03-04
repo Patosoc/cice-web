@@ -1,162 +1,142 @@
-import React, { useState } from "react";
+"use client";
+
 import { motion } from "framer-motion";
-import { ShieldCheck, GraduationCap, Cpu, Users, Globe, Mail, BarChart3, Lock, FileText } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { ShieldCheck, Cpu, Users, Lock, Radar } from "lucide-react";
 
-export default function CICEWebsite() {
-  const [darkMode, setDarkMode] = useState(true);
-  const [filter, setFilter] = useState("Todos");
-
-  const projects = [
-    { title: "DIRDE–CICE", category: "Diagnóstico" },
-    { title: "Plataforma CICE", category: "Tecnología" },
-    { title: "Programa PF–CICE", category: "Formación" },
-    { title: "Observatorio de Bienestar Digital", category: "Investigación" },
-  ];
-
-  const categories = ["Todos", "Diagnóstico", "Tecnología", "Formación", "Investigación"];
-
+export default function Home() {
   return (
-    <div className={darkMode ? "bg-slate-950 text-slate-200" : "bg-white text-slate-900"}>
-      {/* Navbar */}
+    <main className="min-h-screen bg-slate-950 text-white">
+
+      {/* NAVBAR */}
       <header className="flex justify-between items-center px-10 py-6 border-b border-slate-800">
-        <h1 className="text-2xl font-bold tracking-wide">CICE</h1>
-        <nav className="space-x-6 text-sm">
-          <a href="#modelo">Modelo</a>
-          <a href="#proyectos">Proyectos</a>
-          <a href="#publicaciones">Publicaciones</a>
-          <a href="#transparencia">Transparencia</a>
-          <a href="#contacto">Contacto</a>
+        <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          CICE
+        </h1>
+        <nav className="space-x-6 text-sm text-slate-300">
+          <a href="#modelo" className="hover:text-cyan-400">Modelo</a>
+          <a href="#solucion" className="hover:text-cyan-400">Solución</a>
+          <a href="#impacto" className="hover:text-cyan-400">Impacto</a>
+          <a href="#contacto" className="hover:text-cyan-400">Contacto</a>
         </nav>
-        <Button variant="outline" onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? "Modo Claro" : "Modo Oscuro"}
-        </Button>
       </header>
 
-      {/* Hero */}
-      <section className="px-10 py-24 text-center bg-gradient-to-b from-slate-900 to-slate-950">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+      {/* HERO */}
+      <section className="text-center py-32 px-6 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-extrabold leading-tight"
+          className="text-5xl md:text-6xl font-extrabold max-w-4xl mx-auto leading-tight"
         >
-          Centro de Innovación en Ciberseguridad Educativa
-        </motion.h2>
-        <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-400">
-          Modelo integral, ético y escalable para la protección del bienestar digital en entornos educativos.
+          Protección Digital Inteligente para Estudiantes
+        </motion.h1>
+
+        <p className="mt-8 text-lg text-slate-400 max-w-2xl mx-auto">
+          Detectamos, prevenimos y mitigamos riesgos digitales en entornos educativos mediante tecnología avanzada, análisis preventivo y enfoque ético.
         </p>
-        <div className="mt-8 flex justify-center gap-4">
-          <Button className="rounded-2xl px-6 py-3">Explorar Modelo</Button>
-          <Button variant="outline" className="rounded-2xl px-6 py-3">Área Aliados</Button>
+
+        <div className="mt-10 flex justify-center gap-6">
+          <button className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-semibold px-6 py-3 rounded-xl transition">
+            Solicitar Diagnóstico
+          </button>
+          <button className="border border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-slate-900 px-6 py-3 rounded-xl transition">
+            Conocer Plataforma
+          </button>
         </div>
       </section>
 
-      {/* Modelo */}
-      <section id="modelo" className="px-10 py-20">
-        <h3 className="text-3xl font-semibold mb-10">Modelo CICE</h3>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { icon: ShieldCheck, title: "Dimensión Tecnológica" },
-            { icon: GraduationCap, title: "Dimensión Pedagógica" },
-            { icon: Users, title: "Dimensión Psicosocial" },
-            { icon: Lock, title: "Dimensión Normativa" },
-            { icon: Globe, title: "Gobernanza Ética" },
-            { icon: Cpu, title: "Innovación Responsable" },
-          ].map((item, index) => (
-            <Card key={index} className="rounded-2xl shadow-lg">
-              <CardContent className="p-6">
-                <item.icon className="mb-4" />
-                <h4 className="text-xl font-semibold">{item.title}</h4>
-              </CardContent>
-            </Card>
-          ))}
+      {/* MODELO */}
+      <section id="modelo" className="py-24 px-10 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-16 text-cyan-400">
+          Arquitectura Integral CICE
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-10">
+
+          <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-cyan-500 transition">
+            <ShieldCheck size={40} className="text-cyan-400 mb-6" />
+            <h3 className="text-xl font-semibold mb-4">Prevención Activa</h3>
+            <p className="text-slate-400 text-sm">
+              Identificación temprana de riesgos como ciberacoso, exposición indebida y vulneraciones de datos.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-cyan-500 transition">
+            <Cpu size={40} className="text-cyan-400 mb-6" />
+            <h3 className="text-xl font-semibold mb-4">Inteligencia Analítica</h3>
+            <p className="text-slate-400 text-sm">
+              Modelos de análisis para detección de patrones de riesgo en entornos digitales educativos.
+            </p>
+          </div>
+
+          <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-cyan-500 transition">
+            <Users size={40} className="text-cyan-400 mb-6" />
+            <h3 className="text-xl font-semibold mb-4">Formación Estratégica</h3>
+            <p className="text-slate-400 text-sm">
+              Capacitación especializada para docentes, estudiantes y padres.
+            </p>
+          </div>
+
         </div>
       </section>
 
-      {/* Dashboard Métricas */}
-      <section className="px-10 py-20 bg-slate-900">
-        <h3 className="text-3xl font-semibold mb-10">Indicadores Estratégicos</h3>
-        <div className="grid md:grid-cols-3 gap-8">
-          {["Instituciones acompañadas", "Docentes formados", "Diagnósticos aplicados"].map((metric, i) => (
-            <Card key={i} className="rounded-2xl shadow-lg">
-              <CardContent className="p-6 flex flex-col items-center">
-                <BarChart3 className="mb-4" />
-                <h4 className="text-xl font-semibold">{metric}</h4>
-                <p className="text-3xl font-bold mt-4">---</p>
-              </CardContent>
-            </Card>
-          ))}
+      {/* SOLUCIÓN */}
+      <section id="solucion" className="bg-slate-900 py-24 px-10">
+        <h2 className="text-3xl font-bold text-center mb-16 text-cyan-400">
+          Plataforma CICE
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-16 max-w-6xl mx-auto">
+
+          <div>
+            <Lock size={40} className="text-cyan-400 mb-6" />
+            <h3 className="text-xl font-semibold mb-4">Protección de Datos</h3>
+            <p className="text-slate-400">
+              Arquitectura segura basada en principios de privacidad contextual y minimización de datos.
+            </p>
+          </div>
+
+          <div>
+            <Radar size={40} className="text-cyan-400 mb-6" />
+            <h3 className="text-xl font-semibold mb-4">Monitoreo Ético</h3>
+            <p className="text-slate-400">
+              Supervisión agregada y preventiva sin vigilancia individual ni perfilamiento invasivo.
+            </p>
+          </div>
+
         </div>
       </section>
 
-      {/* Proyectos con Filtro */}
-      <section id="proyectos" className="px-10 py-20">
-        <h3 className="text-3xl font-semibold mb-6">Portafolio Estratégico</h3>
-        <div className="flex gap-4 mb-8 flex-wrap">
-          {categories.map((cat) => (
-            <Button key={cat} variant={filter === cat ? "default" : "outline"} onClick={() => setFilter(cat)}>
-              {cat}
-            </Button>
-          ))}
-        </div>
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects
-            .filter((p) => filter === "Todos" || p.category === filter)
-            .map((project, index) => (
-              <Card key={index} className="rounded-2xl shadow-md">
-                <CardContent className="p-6">
-                  <h4 className="text-xl font-semibold">{project.title}</h4>
-                  <p className="text-sm text-slate-400 mt-2">Categoría: {project.category}</p>
-                </CardContent>
-              </Card>
-            ))}
+      {/* IMPACTO */}
+      <section id="impacto" className="py-24 px-10 text-center">
+        <h2 className="text-3xl font-bold mb-16 text-cyan-400">
+          Impacto Esperado
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+          <div>
+            <h3 className="text-5xl font-bold text-cyan-400">+200</h3>
+            <p className="text-slate-400 mt-4">Instituciones protegidas</p>
+          </div>
+          <div>
+            <h3 className="text-5xl font-bold text-cyan-400">+10.000</h3>
+            <p className="text-slate-400 mt-4">Estudiantes beneficiados</p>
+          </div>
+          <div>
+            <h3 className="text-5xl font-bold text-cyan-400">24/7</h3>
+            <p className="text-slate-400 mt-4">Capacidad preventiva</p>
+          </div>
         </div>
       </section>
 
-      {/* Publicaciones */}
-      <section id="publicaciones" className="px-10 py-20 bg-slate-900">
-        <h3 className="text-3xl font-semibold mb-6">Publicaciones y Recursos</h3>
-        <div className="grid md:grid-cols-3 gap-6">
-          {["Guía DIRDE", "Marco Ético CICE", "Informe Bienestar Digital 2026"].map((pub, i) => (
-            <Card key={i} className="rounded-2xl shadow-md">
-              <CardContent className="p-6">
-                <FileText className="mb-4" />
-                <h4 className="text-lg font-semibold">{pub}</h4>
-                <Button variant="outline" className="mt-4">Descargar</Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+      {/* CONTACTO */}
+      <section id="contacto" className="bg-slate-900 py-20 text-center border-t border-slate-800">
+        <h2 className="text-2xl font-semibold mb-4 text-cyan-400">
+          Contacto Estratégico
+        </h2>
+        <p className="text-slate-400">contacto@cice.org</p>
       </section>
 
-      {/* Transparencia */}
-      <section id="transparencia" className="px-10 py-20">
-        <h3 className="text-3xl font-semibold mb-6">Transparencia y Cumplimiento</h3>
-        <p className="max-w-4xl text-slate-400">
-          La Plataforma CICE opera bajo principios de privacidad contextual, minimización de datos, control de accesos por roles y cumplimiento normativo en protección de datos personales. No se realizan procesos de vigilancia individual ni perfilamiento automatizado.
-        </p>
-      </section>
-
-      {/* Contacto */}
-      <section id="contacto" className="px-10 py-20 bg-slate-900">
-        <h3 className="text-3xl font-semibold mb-6">Contacto Institucional</h3>
-        <div className="flex items-center gap-4">
-          <Mail />
-          <span>contacto@cice.org</span>
-        </div>
-        <div className="mt-8 flex gap-6">
-          <a href="#">LinkedIn</a>
-          <a href="#">X</a>
-          <a href="#">YouTube</a>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="px-10 py-6 border-t border-slate-800 text-sm text-center">
-        © {new Date().getFullYear()} CICE - Arquitectura preparada para despliegue seguro (HTTPS, WAF, backend API, autenticación por roles, integración futura con LMS).
-      </footer>
-    </div>
+    </main>
   );
 }
