@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+:root {
+  --primary: #0F3057;
+  --accent: #059669;
+}
+
+body {
+  font-family: var(--font-inter);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-poppins);
+}
