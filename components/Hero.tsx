@@ -17,7 +17,7 @@ export default function Hero() {
           className="flex justify-center mb-8"
         >
           <Image
-            src="/logo-cice.jpg"
+            src="/logo-cice.jpeg"
             alt="Centro de Innovación y Ciberseguridad Educativa"
             width={200}
             height={200}
