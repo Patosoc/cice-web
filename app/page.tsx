@@ -7,6 +7,7 @@ import Fundador from "@/components/Fundador";
 import EstadoProyecto from "@/components/EstadoProyecto";
 import Contacto from "@/components/Contacto";
 
+
 export default function Home() {
   return (
     <main>
