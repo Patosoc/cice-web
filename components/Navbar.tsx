@@ -1,18 +1,41 @@
+"use client";
+
+import Image from "next/image";
+
 export default function Navbar() {
   return (
-    <header className="flex justify-between items-center px-10 py-6 border-b border-slate-200 sticky top-0 bg-white">
 
-      <h1 className="text-2xl font-bold text-[#0F3057]">
-        CICE
-      </h1>
+    <nav className="w-full bg-white shadow-md sticky top-0">
 
-      <nav className="space-x-6 text-sm text-slate-600">
-        <a href="#lineas">Líneas</a>
-        <a href="#modelo">Modelo</a>
-        <a href="#valor">Propuesta de Valor</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
 
-    </header>
+        <div className="flex items-center gap-3">
+
+          <Image
+            src="/logo-cice.svg"
+            alt="CICE"
+            width={40}
+            height={40}
+          />
+
+          <span className="font-bold text-blue-900">
+            CICE
+          </span>
+
+        </div>
+
+        <div className="flex gap-6 text-gray-700">
+
+          <a href="#sobre">El Centro</a>
+          <a href="#lineas">Líneas</a>
+          <a href="#fundador">Fundador</a>
+          <a href="#contacto">Contacto</a>
+
+        </div>
+
+      </div>
+
+    </nav>
+
   );
 }

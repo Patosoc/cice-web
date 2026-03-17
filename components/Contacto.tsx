@@ -1,18 +1,25 @@
-export default function Contacto(){
+export default function Contacto() {
 
-return(
+  return (
 
-<section id="contacto" className="py-20 text-center bg-white">
+    <section id="contacto" className="bg-blue-50 py-20">
 
-<h2 className="text-2xl font-semibold mb-4 text-[#0F3057]">
-Contacto
-</h2>
+      <div className="max-w-4xl mx-auto text-center px-6">
 
-<p className="text-slate-600">
-contacto@cice.org
-</p>
+        <h2 className="text-3xl font-bold mb-6">
+          Contacto
+        </h2>
 
-</section>
+        <p className="text-gray-700">
+          Para alianzas institucionales,
+          cooperación académica o
+          proyectos de investigación,
+          contáctenos.
+        </p>
 
-)
+      </div>
+
+    </section>
+
+  );
 }

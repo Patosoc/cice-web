@@ -31,3 +31,31 @@ export default function RootLayout({
   );
 }
 
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+export const metadata = {
+  title: "CICE - Centro de Innovación y Ciberseguridad Educativa",
+  description: "Centro de innovación en ciberseguridad educativa"
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="es">
+      <body>
+
+        <Navbar />
+
+        {children}
+
+        <Footer />
+
+      </body>
+    </html>
+  );
+}
