@@ -10,7 +10,7 @@ export default function Home() {
 
       <Hero />
 
-      <SobreCICE />
+      <SobreCICE />git push origin master
 
       <LineasEstrategicas />
 
