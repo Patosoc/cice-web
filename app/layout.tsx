@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "CICE | Centro de Innovación y Ciberseguridad Educativa",
   description:
-    "Iniciativa dedicada a la innovación, investigación y formación en ciberseguridad aplicada a entornos educativos.",
+    "Centro dedicado a la investigación, innovación y formación en ciberseguridad aplicada a entornos educativos.",
 };
 
 export default function RootLayout({
@@ -21,9 +21,7 @@ export default function RootLayout({
 
         <Navbar />
 
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
 
         <Footer />
 
