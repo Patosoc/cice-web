@@ -11,12 +11,8 @@ export default function SobreCICE() {
         </h2>
 
         <p className="text-gray-700">
-          El Centro de Innovación y Ciberseguridad Educativa
-          es una iniciativa orientada a promover la
-          protección digital de estudiantes y comunidades
-          educativas mediante investigación,
-          formación especializada e innovación
-          en seguridad digital.
+          iniciativa estratégica orientada a transformar la manera en que los sistemas
+          educativos abordan la protección del bienestar infantil en contextos mediados por la tecnología.
         </p>
 
       </div>
