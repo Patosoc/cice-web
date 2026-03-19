@@ -1,4 +1,4 @@
-export default function SobreCICE() {
+export default function sobreCICE() {
 
   return (
 
@@ -11,7 +11,7 @@ export default function SobreCICE() {
         </h2>
 
         <p className="text-gray-700">
-          iniciativa estratégica orientada a transformar la manera en que los sistemas
+          Iniciativa estratégica orientada a transformar la manera en que los sistemas
           educativos abordan la protección del bienestar infantil en contextos mediados por la tecnología.
         </p>
 
