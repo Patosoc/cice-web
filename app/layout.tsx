@@ -17,15 +17,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>
+      <body className="relative">
 
-        <Navbar />
+  {/* FONDO FIJO */}
+  <div
+    className="fixed inset-0 -z-10 bg-cover bg-center"
+    style={{ backgroundImage: "url('/aula.jpg')" }}
+  />
 
-        <main>{children}</main>
+  {/* CAPA AZUL SUAVE */}
+  <div className="fixed inset-0 -z-10 bg-blue-900/70" />
 
-        <Footer />
+  <Navbar />
 
-      </body>
+  <main>{children}</main>
+
+  <Footer />
+
+</body>
     </html>
   );
 }
