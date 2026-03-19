@@ -60,18 +60,22 @@ export default function LineasEstrategicas() {
           </h2>
 
           {/* CARDS */}
-          <div className="grid md:grid-cols-4 gap-6 mb-10">
+          <div className="flex gap-4 mb-10 overflow-x-auto pb-2">
 
             {servicios.map((item) => (
 
               <motion.div
                 key={item.id}
                 onClick={() => setActivo(item.id)}
-                whileHover={{ y: -8 }}
-                className={`p-6 rounded-xl text-center cursor-pointer transition-all
+                whileHover={{ y: -6, scale: 1.03 }}
+                animate={{
+                  borderColor: activo === item.id ? "#60A5FA" : "rgba(0,0,0,0)",
+                }}
+                transition={{ duration: 0.3 }}
+                className={`min-w-[220px] p-4 rounded-xl text-center cursor-pointer border-2
                   ${activo === item.id
                     ? "bg-blue-900 text-white shadow-xl"
-                    : "bg-white shadow-md"}
+                    : "bg-white shadow-md hover:border-blue-400"}
                 `}
               >
 
