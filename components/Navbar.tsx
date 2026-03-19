@@ -26,8 +26,8 @@ export default function Navbar() {
 
         <div className="flex gap-6 text-blue-700">
 
-          <a href="#sobre">El Centro</a>
-          <a href="#lineas">Líneas</a>
+          <a href="#sobre">El Modelo</a>
+          <a href="#lineas">Servicios</a>
           <a href="#fundador">Fundador</a>
           <a href="#contacto">Contacto</a>
 

@@ -12,16 +12,17 @@ export default function LineasEstrategicas() {
         <div className="card">
 
           <h2 className="text-3xl font-bold text-center mb-12">
-            Líneas Estratégicas
+            Servicios
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-5 gap-6">
 
             {[ 
-              { title: "Formación", icon: <BookOpen /> },
-              { title: "Investigación", icon: <Shield /> },
-              { title: "Innovación", icon: <Lightbulb /> },
-              { title: "Acompañamiento", icon: <Users /> },
+              { title: "DIAGNÓSTICO INTEGRAL DE RIESGO DIGITAL ESCOLAR (DIRDE–CICE)", icon: <BookOpen /> },
+              { title: "ACOMPAÑAMIENTO ESTRATÉGICO EN CIBERSEGURIDAD EDUCATIVA (AECE–CICE)", icon: <Shield /> },
+              { title: "PROGRAMA DE FORMACIÓN EN CIBERSEGURIDAD EDUCATIVA (SICE)", icon: <Lightbulb /> },
+              { title: "SISTEMA INTEGRADO DE CIBERSEGURIDAD EDUCATIVA", icon: <Users /> },
+              { title: "OBSERVATORIO Y EVIDENCIA CICE", icon: <BookOpen /> },
             ].map((item, i) => (
 
               <motion.div

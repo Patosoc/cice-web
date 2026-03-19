@@ -33,14 +33,16 @@ export default function SobreCICE() {
               Dimensiones del Modelo
             </h3>
 
-            <ul className="text-left max-w-md mx-auto space-y-2">
-              <li>• Dimensión tecnológica</li>
-              <li>• Dimensión pedagógica</li>
-              <li>• Dimensión psicosocial</li>
-              <li>• Dimensión institucional</li>
-              <li>• Dimensión normativa</li>
-              <li>• Dimensión ética</li>
-            </ul>
+            <div className="grid md:grid-cols-2 gap-4 max-w-xl mx-auto text-left">
+
+              <div className="bg-white shadow p-4 rounded-lg">Tecnológica</div>
+              <div className="bg-white shadow p-4 rounded-lg">Pedagógica</div>
+              <div className="bg-white shadow p-4 rounded-lg">Psicosocial</div>
+              <div className="bg-white shadow p-4 rounded-lg">Institucional</div>
+              <div className="bg-white shadow p-4 rounded-lg">Normativa</div>
+              <div className="bg-white shadow p-4 rounded-lg">Ética</div>
+
+            </div>
 
           </div>
 
