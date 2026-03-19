@@ -7,8 +7,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto text-center">
 
         <p>
-          © 2026 Centro de Innovación y
-          Ciberseguridad Educativa
+          © 2026 Centro de Investigación en Ciberseguridad Educativa
         </p>
 
       </div>
