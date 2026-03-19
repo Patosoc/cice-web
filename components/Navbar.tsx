@@ -19,12 +19,12 @@ export default function Navbar() {
           />
 
           <span className="font-bold text-blue-900">
-            CICE
+            CICE  Transformamos la ciberseguridad educativa en protección real del bienestar infantil
           </span>
 
         </div>
 
-        <div className="flex gap-6 text-gray-700">
+        <div className="flex gap-6 text-blue-700">
 
           <a href="#sobre">El Centro</a>
           <a href="#lineas">Líneas</a>
