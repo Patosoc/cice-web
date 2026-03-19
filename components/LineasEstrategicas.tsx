@@ -1,7 +1,10 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Shield, BookOpen, Lightbulb, Users } from "lucide-react";
+
 export default function LineasEstrategicas() {
-
   return (
-
     <section id="lineas" className="py-20">
 
       <div className="max-w-6xl mx-auto px-6">
@@ -14,25 +17,28 @@ export default function LineasEstrategicas() {
 
           <div className="grid md:grid-cols-4 gap-6">
 
-            <div className="bg-white shadow-md p-6 rounded-xl">
-              <h3 className="font-bold mb-2">Formación</h3>
-              <p>Programas educativos en ciberseguridad.</p>
-            </div>
+            {[ 
+              { title: "Formación", icon: <BookOpen /> },
+              { title: "Investigación", icon: <Shield /> },
+              { title: "Innovación", icon: <Lightbulb /> },
+              { title: "Acompañamiento", icon: <Users /> },
+            ].map((item, i) => (
 
-            <div className="bg-white shadow-md p-6 rounded-xl">
-              <h3 className="font-bold mb-2">Investigación</h3>
-              <p>Estudios sobre riesgos digitales.</p>
-            </div>
+              <motion.div
+                key={i}
+                whileHover={{ y: -10 }}
+                className="bg-white shadow-md p-6 rounded-xl text-center cursor-pointer"
+              >
 
-            <div className="bg-white shadow-md p-6 rounded-xl">
-              <h3 className="font-bold mb-2">Innovación</h3>
-              <p>Desarrollo de soluciones.</p>
-            </div>
+                <div className="flex justify-center mb-4 text-blue-700">
+                  {item.icon}
+                </div>
 
-            <div className="bg-white shadow-md p-6 rounded-xl">
-              <h3 className="font-bold mb-2">Acompañamiento</h3>
-              <p>Apoyo a instituciones educativas.</p>
-            </div>
+                <h3 className="font-bold">{item.title}</h3>
+
+              </motion.div>
+
+            ))}
 
           </div>
 
@@ -41,6 +47,5 @@ export default function LineasEstrategicas() {
       </div>
 
     </section>
-
   );
 }
