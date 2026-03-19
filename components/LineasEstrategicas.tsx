@@ -68,22 +68,26 @@ export default function LineasEstrategicas() {
                 key={item.id}
                 onClick={() => setActivo(item.id)}
                 whileHover={{ y: -6, scale: 1.03 }}
-                animate={{
-                  borderColor: activo === item.id ? "#60A5FA" : "rgba(0,0,0,0)",
-                }}
-                transition={{ duration: 0.3 }}
-                className={`min-w-[220px] p-4 rounded-xl text-center cursor-pointer border-2
-                  ${activo === item.id
-                    ? "bg-blue-900 text-white shadow-xl"
-                    : "bg-white shadow-md hover:border-blue-400"}
-                `}
+                className="relative min-w-[220px] p-4 rounded-xl text-center cursor-pointer border-2 bg-white shadow-md"
               >
 
-                <div className="flex justify-center mb-4">
+                {/* ICONO */}
+                <div className="flex justify-center mb-4 text-blue-700">
                   {item.icon}
                 </div>
 
-                <h3 className="font-bold">{item.title}</h3>
+                {/* TÍTULO */}
+                <h3 className="font-bold text-sm">
+                  {item.title}
+                </h3>
+
+                {/* INDICADOR ACTIVO */}
+                {activo === item.id && (
+                  <motion.div
+                    layoutId="activeIndicator"
+                    className="absolute bottom-0 left-0 w-full h-1 bg-blue-500 rounded-b-xl"
+                  />
+                )}
 
               </motion.div>
 

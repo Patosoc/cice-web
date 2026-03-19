@@ -39,3 +39,13 @@ body {
 .card {
   @apply bg-white/95 backdrop-blur-sm shadow-xl rounded-2xl p-10;
 }
+
+/* Scroll elegante */
+::-webkit-scrollbar {
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 10px;
+}
