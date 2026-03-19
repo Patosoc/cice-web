@@ -5,30 +5,26 @@ import Image from "next/image";
 export default function Hero() {
 
   return (
-    <section className="relative w-full h-[600px] flex items-center justify-center text-center text-white">
+    <section className="min-h-[600px] flex items-center">
 
-      {/* IMAGEN DE FONDO */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/aula.jpg')" }}
-      />
+      <div className="max-w-6xl mx-auto px-6 w-full">
 
-      {/* CAPA DEGRADADA AZUL */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0B2A5B]/90 via-[#1F4E8C]/80 to-[#2FA4FF]/70"
-      />  
+        <div className="max-w-xl text-left text-white">
 
-      {/* CONTENIDO */}
-      <div className="relative z-10 max-w-4xl px-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Centro de Innovación y Ciberseguridad Educativa
+          </h1>
 
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          Centro de Innovación y Ciberseguridad Educativa
-        </h1>
+          <p className="text-lg mb-6">
+            Protegiendo el entorno digital de estudiantes mediante
+            investigación, innovación y formación en ciberseguridad.
+          </p>
 
-        <p className="text-lg">
-          iniciativa estratégica orientada a transformar la manera en que los sistemas
-          educativos abordan la protección del bienestar infantil en contextos mediados 
-          por la tecnología.
-        </p>
+          <button className="bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200">
+            Conocer más
+          </button>
+
+        </div>
 
       </div>
 

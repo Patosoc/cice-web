@@ -19,22 +19,22 @@ export default function RootLayout({
     <html lang="es">
       <body className="relative">
 
-  {/* FONDO FIJO */}
-  <div
-    className="fixed inset-0 -z-10 bg-cover bg-center"
-    style={{ backgroundImage: "url('/aula.jpg')" }}
-  />
+        {/* IMAGEN FIJA */}
+        <div
+          className="fixed inset-0 -z-10 bg-cover bg-center"
+          style={{ backgroundImage: "url('/aula.jpg')" }}
+        />
 
-  {/* CAPA AZUL SUAVE */}
-  <div className="fixed inset-0 -z-10 bg-blue-900/70" />
+        {/* DEGRADADO AZUL LATERAL (izquierda → derecha) */}
+        <div className="fixed inset-0 -z-10 bg-gradient-to-r from-[#0B2A5B]/90 via-[#1F4E8C]/70 to-transparent" />
 
-  <Navbar />
+        <Navbar />
 
-  <main>{children}</main>
+        <main>{children}</main>
 
-  <Footer />
+        <Footer />
 
-</body>
+      </body>
     </html>
   );
 }
