@@ -49,3 +49,6 @@ body {
   background: #3b82f6;
   border-radius: 10px;
 }
+html {
+  scroll-behavior: smooth;
+}

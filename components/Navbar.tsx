@@ -1,41 +1,71 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useState } from "react";
+
+const secciones = [
+  { id: "inicio", label: "Inicio" },
+  { id: "proyeccion", label: "Proyección" },
+  { id: "sobre", label: "Modelo CICE" },
+  { id: "lineas", label: "Líneas Estratégicas" },
+  { id: "contacto", label: "Contacto" },
+];
 
 export default function Navbar() {
+
+  const [activo, setActivo] = useState("inicio");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      secciones.forEach((sec) => {
+        const el = document.getElementById(sec.id);
+        if (el) {
+          const top = el.offsetTop - 100;
+          const height = el.offsetHeight;
+
+          if (scrollY >= top && scrollY < top + height) {
+            setActivo(sec.id);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
 
-    <nav className="w-full bg-white shadow-md sticky top-0">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
-      <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+        {/* LOGO / NOMBRE */}
+        <a href="#inicio" className="font-bold text-blue-900">
+          CICE
+        </a>
 
-        <div className="flex items-center gap-3">
+        {/* MENÚ */}
+        <div className="flex gap-6">
 
-          <Image
-            src="/logo-cice.svg"
-            alt="CICE"
-            width={40}
-            height={40}
-          />
-
-          <span className="font-bold text-blue-900">
-            CICE  Transformamos la ciberseguridad educativa en protección real del bienestar infantil
-          </span>
-
-        </div>
-
-        <div className="flex gap-6 text-blue-700">
-
-          <a href="#sobre">El Modelo</a>
-          <a href="#lineas">Servicios</a>
-          <a href="#fundador">Fundador</a>
-          <a href="#contacto">Contacto</a>
+          {secciones.map((sec) => (
+            <a
+              key={sec.id}
+              href={`#${sec.id}`}
+              className={`transition font-medium
+                ${activo === sec.id
+                  ? "text-blue-900 border-b-2 border-blue-900"
+                  : "text-gray-600 hover:text-blue-800"}
+              `}
+            >
+              {sec.label}
+            </a>
+          ))}
 
         </div>
 
       </div>
 
     </nav>
-
   );
 }

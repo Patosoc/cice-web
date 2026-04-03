@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ArrowUp } from "lucide-react";
 
 export default function Contacto() {
 
@@ -34,7 +35,12 @@ export default function Contacto() {
   };
 
   return (
-    <section id="contacto" className="py-20">
+    <section
+      
+      id="contacto"
+      className="relative py-20 bg-cover bg-center"
+      style={{ backgroundImage: "url('/contacto.jpg')" }}
+    >
 
       <div className="max-w-4xl mx-auto px-6">
 
@@ -133,7 +139,12 @@ export default function Contacto() {
         </div>
 
       </div>
-
+      <a
+      href="#"
+      className="fixed bottom-6 right-6 bg-blue-900 text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition"
+    >
+      <ArrowUp size={20} />
+    </a>
     </section>
   );
 }
