@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react";
+import { User, Mail, Building, MessageSquare } from "lucide-react";
 
 export default function Contacto() {
 
@@ -51,49 +52,72 @@ export default function Contacto() {
           {/* FORMULARIO */}
           <form onSubmit={handleSubmit} className="space-y-6">
 
-            <input type="hidden" name="_subject" value="Nuevo contacto desde CICE" />
+          <input type="hidden" name="_subject" value="Nuevo contacto desde CICE" />
 
+          {/* NOMBRE */}
+          <div className="relative group">
+            <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-500" size={18} />
             <input
               type="text"
               name="nombre"
               placeholder="Nombre completo"
               required
-              className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Ingresa tu nombre")}
+              onInput={(e) => (e.target as HTMLInputElement).setCustomValidity("")}
             />
+          </div>
 
+          {/* EMAIL */}
+          <div className="relative group">
+            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-500" size={18} />
             <input
               type="email"
               name="email"
               placeholder="Correo electrónico"
               required
-              className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              onInvalid={(e) => (e.target as HTMLInputElement).setCustomValidity("Ingresa un correo válido")}
+              onInput={(e) => (e.target as HTMLInputElement).setCustomValidity("")}
             />
+          </div>
 
+          {/* ORGANIZACIÓN */}
+          <div className="relative group">
+            <Building className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-500" size={18} />
             <input
               type="text"
               name="organizacion"
               placeholder="Institución / Organización"
-              className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             />
+          </div>
 
+          {/* MENSAJE */}
+          <div className="relative group">
+            <MessageSquare className="absolute left-3 top-3 text-gray-400 group-focus-within:text-blue-500" size={18} />
             <textarea
               name="mensaje"
               placeholder="¿Cómo podemos ayudarte?"
               rows={4}
               required
-              className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              onInvalid={(e) => (e.target as HTMLTextAreaElement).setCustomValidity("Escribe tu mensaje")}
+              onInput={(e) => (e.target as HTMLTextAreaElement).setCustomValidity("")}
             />
+          </div>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              disabled={estado === "enviando"}
-              className="w-full bg-blue-900 text-white py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-800 transition disabled:opacity-60"
-            >
-              {estado === "enviando" ? "Enviando..." : "Enviar información"}
-            </motion.button>
+          {/* BOTÓN */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            disabled={estado === "enviando"}
+            className="w-full bg-blue-900 text-white py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-800 transition disabled:opacity-60"
+          >
+            {estado === "enviando" ? "Enviando..." : "Enviar información"}
+          </motion.button>
 
-          </form>
+        </form>
 
           {/* IMAGEN */}
           <div className="hidden md:block">
