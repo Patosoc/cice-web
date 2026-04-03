@@ -16,16 +16,11 @@ export default function Contacto() {
     const data = new FormData(e.target);
 
     try {
-      const res = await fetch("https://script.google.com/macros/s/XXXX/exec", {
+      const res = await fetch("https://formspree.io/f/xzdkjgkj", {
         method: "POST",
-        body: JSON.stringify({
-          nombre: data.get("nombre"),
-          email: data.get("email"),
-          organizacion: data.get("organizacion"),
-          mensaje: data.get("mensaje"),
-        }),
+        body: data,
         headers: {
-          "Content-Type": "application/json",
+          Accept: "application/json",
         },
       });
 
