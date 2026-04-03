@@ -39,30 +39,20 @@ export default function Contacto() {
       
       id="contacto"
       className="relative py-20 bg-cover bg-center"
-      style={{ backgroundImage: "url('/contacto.jpg')" }}
+/*      style={{ backgroundImage: "url('/contacto.jpg')" }}*/
     >
 
       <div className="max-w-4xl mx-auto px-6">
 
         <div className="card">
 
-          <h2 className="text-3xl font-bold text-center mb-8">
-            Contacto
-          </h2>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
 
-          <p className="text-center text-gray-600 mb-10">
-            ¿Interesado en alianzas, formación o proyectos? Déjanos tus datos.
-          </p>
-
+          {/* FORMULARIO */}
           <form onSubmit={handleSubmit} className="space-y-6">
 
-            <input
-              type="hidden"
-              name="_subject"
-              value="Nuevo contacto desde CICE"
-            />
+            <input type="hidden" name="_subject" value="Nuevo contacto desde CICE" />
 
-            {/* NOMBRE */}
             <input
               type="text"
               name="nombre"
@@ -71,7 +61,6 @@ export default function Contacto() {
               className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
             />
 
-            {/* EMAIL */}
             <input
               type="email"
               name="email"
@@ -80,7 +69,6 @@ export default function Contacto() {
               className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
             />
 
-            {/* ORGANIZACIÓN */}
             <input
               type="text"
               name="organizacion"
@@ -88,7 +76,6 @@ export default function Contacto() {
               className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
             />
 
-            {/* MENSAJE */}
             <textarea
               name="mensaje"
               placeholder="¿Cómo podemos ayudarte?"
@@ -97,7 +84,6 @@ export default function Contacto() {
               className="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"
             />
 
-            {/* BOTÓN */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -109,32 +95,16 @@ export default function Contacto() {
 
           </form>
 
-          {/* MENSAJES */}
+          {/* IMAGEN */}
+          <div className="hidden md:block">
+            <img
+              src="/contacto.jpg"
+              alt="Contacto CICE"
+              className="rounded-xl shadow-lg w-full h-full object-cover"
+            />
+          </div>
 
-          {estado === "ok" && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-6 bg-green-50 border border-green-200 p-4 rounded-lg text-center"
-            >
-              <p className="text-green-700 font-semibold">
-                ✅ Información enviada correctamente
-              </p>
-              <p className="text-green-600 text-sm mt-1">
-                Te contactaremos pronto.
-              </p>
-            </motion.div>
-          )}
-
-          {estado === "error" && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-red-600 text-center mt-6 font-semibold"
-            >
-              ❌ Ocurrió un error. Intenta nuevamente.
-            </motion.p>
-          )}
+        </div>
 
         </div>
 
