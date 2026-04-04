@@ -9,6 +9,9 @@ export default function Footer() {
         <p>
           © 2026 Centro de Investigación en Ciberseguridad Educativa
         </p>
+        <p>
+          Cel 317 599 99 93  -  Contacto@my-cice.com
+        </p>
 
       </div>
 
