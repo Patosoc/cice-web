@@ -64,7 +64,7 @@ export default function Proyeccion() {
             >
               <img
                 src="/proyeccion.jpg"
-                alt="Proyección CICE"
+                /*alt="Proyección CICE"*/
                 className="rounded-2xl shadow-xl object-cover w-full h-[350px]"
               />
             </motion.div>
