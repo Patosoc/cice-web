@@ -1,98 +1,113 @@
 "use client";
 
-import AnimatedSection from "./AnimatedSection";
 import { motion } from "framer-motion";
+import {
+  Cpu,
+  BookOpen,
+  Heart,
+  Users,
+  Scale,
+  ShieldCheck,
+} from "lucide-react";
 
 export default function SobreCICE() {
+  const dimensiones = [
+    {
+      nombre: "Tecnológica",
+      icono: <Cpu />,
+      color: "from-blue-500 to-blue-300",
+    },
+    {
+      nombre: "Pedagógica",
+      icono: <BookOpen />,
+      color: "from-green-500 to-green-300",
+    },
+    {
+      nombre: "Psicosocial",
+      icono: <Heart />,
+      color: "from-pink-500 to-pink-300",
+    },
+    {
+      nombre: "Institucional",
+      icono: <Users />,
+      color: "from-purple-500 to-purple-300",
+    },
+    {
+      nombre: "Normativa",
+      icono: <Scale />,
+      color: "from-yellow-500 to-yellow-300",
+    },
+    {
+      nombre: "Ética",
+      icono: <ShieldCheck />,
+      color: "from-indigo-500 to-indigo-300",
+    },
+  ];
+
   return (
     <section id="sobre" className="py-20">
 
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6 text-center">
 
-        <AnimatedSection>
+        {/* TÍTULO */}
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-bold mb-6 text-blue-900"
+        >
+          Modelo CICE
+        </motion.h2>
 
-          <div className="card text-center">
+        {/* DESCRIPCIÓN */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="text-gray-700 mb-10 leading-relaxed"
+        >
+          El Modelo Integral de Ciberseguridad Educativa (CICE) constituye un
+          marco metodológico y conceptual diseñado para orientar la prevención,
+          comprensión y gestión de los riesgos digitales que afectan el bienestar
+          de niños, niñas y adolescentes en contextos educativos. Se fundamenta
+          en evidencia empírica y propone una aproximación integral que supera
+          las visiones fragmentadas de la ciberseguridad tradicional.
+        </motion.p>
 
-            <h2 className="text-3xl font-bold mb-6">
-              Modelo CICE
-            </h2>
+        {/* DIMENSIONES */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
 
-            <p className="text-gray-700 mb-6">
-              El Modelo Integral de Ciberseguridad Educativa constituye un marco
-              metodológico y conceptual diseñado para orientar la prevención,
-              comprensión y gestión de los riesgos digitales que afectan el bienestar
-              de niños y adolescentes en contextos educativos.
-            </p>
+          {dimensiones.map((dim, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15 }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 10px 25px rgba(0,0,0,0.15)",
+              }}
+              className={`relative p-5 rounded-xl text-white cursor-pointer overflow-hidden
+                bg-gradient-to-br ${dim.color}`}
+            >
 
-            <p className="text-gray-700 mb-8">
-              Se fundamenta en evidencia empírica y marcos conceptuales contemporáneos,
-              proponiendo una aproximación integral que supera las visiones fragmentadas
-              de la ciberseguridad tradicional en el ámbito escolar.
-            </p>
-
-            <h3 className="text-xl font-semibold mb-4">
-              Dimensiones del Modelo
-            </h3>
-
-            import { Cpu, BookOpen, Heart, Users, Scale, ShieldCheck } from "lucide-react";
-
-              const dimensiones = [
-                {
-                  nombre: "Tecnológica",
-                  icono: <Cpu />,
-                  color: "from-blue-500 to-blue-300",
-                },
-                {
-                  nombre: "Pedagógica",
-                  icono: <BookOpen />,
-                  color: "from-green-500 to-green-300",
-                },
-                {
-                  nombre: "Psicosocial",
-                  icono: <Heart />,
-                  color: "from-pink-500 to-pink-300",
-                },
-                {
-                  nombre: "Institucional",
-                  icono: <Users />,
-                  color: "from-purple-500 to-purple-300",
-                },
-                {
-                  nombre: "Normativa",
-                  icono: <Scale />,
-                  color: "from-yellow-500 to-yellow-300",
-                },
-                {
-                  nombre: "Ética",
-                  icono: <ShieldCheck />,
-                  color: "from-indigo-500 to-indigo-300",
-                },
-              ];
-
-              <div className="grid md:grid-cols-2 gap-4 max-w-xl mx-auto">
-
-                {dimensiones.map((dim, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05 }}
-                    className={`flex items-center gap-3 p-4 rounded-xl text-white shadow-md cursor-pointer
-                      bg-gradient-to-br ${dim.color}`}
-                  >
-                    <div className="text-white">
-                      {dim.icono}
-                    </div>
-
-                    <span className="font-semibold">
-                      {dim.nombre}
-                    </span>
-                  </motion.div>
-                ))}
-
+              {/* ICONO */}
+              <div className="mb-3 flex justify-center text-white">
+                {dim.icono}
               </div>
 
-          </div>
+              {/* TEXTO */}
+              <h3 className="font-semibold text-sm">
+                {dim.nombre}
+              </h3>
 
-        </AnimatedSection>
+              {/* EFECTO SUTIL DE BRILLO */}
+              <div className="absolute inset-0 opacity-0 hover:opacity-20 bg-white transition duration-300"></div>
+
+            </motion.div>
+          ))}
+
+        </div>
 
       </div>
 
