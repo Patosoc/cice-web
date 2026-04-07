@@ -49,7 +49,8 @@ export default function SobreCICE() {
 
       <div className="max-w-5xl mx-auto px-6">
 
-        <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 text-center">
+        {/* CARD CONTENEDORA (VERSIÓN ELEGANTE) */}
+        <div className="bg-white/70 backdrop-blur-lg border border-white/40 rounded-2xl shadow-xl p-8 text-center">
 
           {/* TÍTULO */}
           <motion.h2
@@ -94,7 +95,7 @@ export default function SobreCICE() {
               >
 
                 {/* ICONO */}
-                <div className="mb-3 flex justify-center text-white">
+                <div className="mb-3 flex justify-center">
                   {dim.icono}
                 </div>
 
@@ -103,17 +104,18 @@ export default function SobreCICE() {
                   {dim.nombre}
                 </h3>
 
-                {/* EFECTO SUTIL DE BRILLO */}
+                {/* EFECTO BRILLO */}
                 <div className="absolute inset-0 opacity-0 hover:opacity-20 bg-white transition duration-300"></div>
 
               </motion.div>
             ))}
 
-            </div>
-
           </div>
+
         </div>
-      </div>      
+
+      </div>
+
     </section>
   );
 }
