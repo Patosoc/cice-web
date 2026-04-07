@@ -1,6 +1,7 @@
 "use client";
 
 import AnimatedSection from "./AnimatedSection";
+import { motion } from "framer-motion";
 
 export default function SobreCICE() {
   return (
@@ -33,16 +34,61 @@ export default function SobreCICE() {
               Dimensiones del Modelo
             </h3>
 
-            <div className="grid md:grid-cols-2 gap-4 max-w-xl mx-auto text-left">
+            import { Cpu, BookOpen, Heart, Users, Scale, ShieldCheck } from "lucide-react";
 
-              <div className="bg-white shadow p-4 rounded-lg">Tecnológica</div>
-              <div className="bg-white shadow p-4 rounded-lg">Pedagógica</div>
-              <div className="bg-white shadow p-4 rounded-lg">Psicosocial</div>
-              <div className="bg-white shadow p-4 rounded-lg">Institucional</div>
-              <div className="bg-white shadow p-4 rounded-lg">Normativa</div>
-              <div className="bg-white shadow p-4 rounded-lg">Ética</div>
+              const dimensiones = [
+                {
+                  nombre: "Tecnológica",
+                  icono: <Cpu />,
+                  color: "from-blue-500 to-blue-300",
+                },
+                {
+                  nombre: "Pedagógica",
+                  icono: <BookOpen />,
+                  color: "from-green-500 to-green-300",
+                },
+                {
+                  nombre: "Psicosocial",
+                  icono: <Heart />,
+                  color: "from-pink-500 to-pink-300",
+                },
+                {
+                  nombre: "Institucional",
+                  icono: <Users />,
+                  color: "from-purple-500 to-purple-300",
+                },
+                {
+                  nombre: "Normativa",
+                  icono: <Scale />,
+                  color: "from-yellow-500 to-yellow-300",
+                },
+                {
+                  nombre: "Ética",
+                  icono: <ShieldCheck />,
+                  color: "from-indigo-500 to-indigo-300",
+                },
+              ];
 
-            </div>
+              <div className="grid md:grid-cols-2 gap-4 max-w-xl mx-auto">
+
+                {dimensiones.map((dim, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.05 }}
+                    className={`flex items-center gap-3 p-4 rounded-xl text-white shadow-md cursor-pointer
+                      bg-gradient-to-br ${dim.color}`}
+                  >
+                    <div className="text-white">
+                      {dim.icono}
+                    </div>
+
+                    <span className="font-semibold">
+                      {dim.nombre}
+                    </span>
+                  </motion.div>
+                ))}
+
+              </div>
 
           </div>
 
