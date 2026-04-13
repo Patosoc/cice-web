@@ -17,7 +17,7 @@ export default function Hero() {
 
           {/* TÍTULO */}
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Centro de Innovación y Ciberseguridad Educativa
+            Centro de Investigación en Ciberseguridad Educativa
           </h1>
 
           {/* DESCRIPCIÓN */}
