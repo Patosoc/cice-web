@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "CICE | Centro de Innovación y Ciberseguridad Educativa",
+  title: "CICE | Centro de Investigación en Ciberseguridad Educativa",
   description:
     "Centro dedicado a la investigación, innovación y formación en ciberseguridad aplicada a entornos educativos.",
 };
