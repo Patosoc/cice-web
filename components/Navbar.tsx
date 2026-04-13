@@ -58,7 +58,7 @@ export default function Navbar() {
           <a href="#inicio" className="flex items-center gap-3">
 
             <Image
-              src="/logo-cice.jpg"
+              src="/logo-cice.jpeg"
               alt="CICE"
               width={scrolled ? 50 : 80}
               height={scrolled ? 50 : 80}
