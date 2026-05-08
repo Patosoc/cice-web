@@ -13,11 +13,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
       async authorize(credentials) {
         const testUsers = [
-          { id: "1", email: "rector@cice.edu.co", password: "cice2025", role: "rector", name: "Rector Demo" },
-          { id: "2", email: "analista@cice.edu.co", password: "cice2025", role: "analista", name: "Analista Demo" },
-          { id: "3", email: "admin@cice.edu.co", password: "cice2025", role: "superadmin", name: "Admin CICE" },
-          { id: "4", email: "comite@cice.edu.co", password: "cice2025", role: "comite", name: "Comité Ético" },
-          { id: "5", email: "secretaria@cice.edu.co", password: "cice2025", role: "secretaria", name: "Secretaría Edu" },
+          { id: "1", email: "fajaroa@gmail.com", password: "cice2025", role: "rector", name: "Rector Demo" },
+          { id: "2", email: "analista@my-cice.com", password: "cice2025", role: "analista", name: "Analista Demo" },
+          { id: "3", email: "patosoc@gmail.com", password: "cice2025", role: "superadmin", name: "Admin CICE" },
+          { id: "4", email: "comite@my-cice.com", password: "cice2025", role: "comite", name: "Comité Ético" },
+          { id: "5", email: "secretaria@my-cice.com", password: "cice2025", role: "secretaria", name: "Secretaría Edu" },
         ]
 
         const user = testUsers.find(
