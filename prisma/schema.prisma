@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model tipo_inst {
+  id_tipo       Int           @id @default(autoincrement())
+  nombre        String        @unique
+
+  instituciones Institucion[]
+}
+
+model ciudad {
+  id_ciudad      String       @id
+  name_ciudad    String
+
+  instituciones  Institucion[]
+}
+
+model Institucion {
+  id          Int        @id @default(autoincrement())
+  name        String
+
+  id_tipo     Int
+  tipo        tipo_inst  @relation(fields: [id_tipo], references: [id_tipo])
+
+  id_ciudad   String
+  ciudad      ciudad     @relation(fields: [id_ciudad], references: [id_ciudad])
+
+  active      Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+
+  users       User[]
+}
+
+model Rol {
+  id       Int      @id @default(autoincrement())
+  name     String   @unique
+
+  users    User[]
+}
+
+model User {
+  id             String       @id @default(cuid())
+  name           String
+  email          String       @unique
+  password       String
+
+  roleId         Int
+  role           Rol          @relation(fields: [roleId], references: [id])
+
+  institucionId  Int
+  institucion    Institucion  @relation(fields: [institucionId], references: [id])
+
+  active         Boolean      @default(true)
+  createdAt      DateTime     @default(now())
+}

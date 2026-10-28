@@ -1,4 +1,4 @@
-import NextAuth from "next-auth"
+﻿import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -7,7 +7,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       name: "credentials",
       credentials: {
         email: { label: "Email", type: "email" },
-        password: { label: "Contraseña", type: "password" },
+        password: { label: "ContraseÃ±a", type: "password" },
         role: { label: "Rol", type: "text" },
       },
 
@@ -16,8 +16,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           { id: "1", email: "fajaroa@gmail.com", password: "cice2025", role: "rector", name: "Rector Demo" },
           { id: "2", email: "analista@my-cice.com", password: "cice2025", role: "analista", name: "Analista Demo" },
           { id: "3", email: "patosoc@gmail.com", password: "cice2025", role: "superadmin", name: "Admin CICE" },
-          { id: "4", email: "comite@my-cice.com", password: "cice2025", role: "comite", name: "Comité Ético" },
-          { id: "5", email: "secretaria@my-cice.com", password: "cice2025", role: "secretaria", name: "Secretaría Edu" },
+          { id: "4", email: "comite@my-cice.com", password: "cice2025", role: "comite", name: "ComitÃ© Ã‰tico" },
+          { id: "5", email: "secretaria@my-cice.com", password: "cice2025", role: "secretaria", name: "SecretarÃ­a Edu" },
         ]
 
         const user = testUsers.find(
