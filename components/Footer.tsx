@@ -4,7 +4,7 @@ const redes = {
   facebook: "https://www.facebook.com/share/1BxfXbXnWQ/",
   instagram: "https://www.instagram.com/mycicecol/",
   linkedin:
-    "https://linkedin.com/company/centro-de-investigacion-en-ciberseguridad-educativa",
+    "https://www.linkedin.com/company/my-cice",
   whatsapp:
     "https://wa.me/573175999993?text=Hola%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20del%20Centro%20de%20Innovaci%C3%B3n%20y%20Ciberseguridad%20Educativa%20%28CICE%29.",
 };
