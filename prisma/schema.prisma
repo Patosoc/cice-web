@@ -59,3 +59,21 @@ model User {
   active         Boolean      @default(true)
   createdAt      DateTime     @default(now())
 }
+
+model Contacto {
+  id                 String   @id @default(cuid())
+  nombre             String
+  email              String
+  telefono           String
+  organizacion       String?
+  mensaje             String
+  autorizacionDatos  Boolean  @default(false)
+  fechaAutorizacion  DateTime?
+  versionPolitica    String?
+  fechaCreacion      DateTime @default(now())
+  estado             String   @default("NUEVO")
+
+  @@index([email])
+  @@index([fechaCreacion])
+  @@map("contactos")
+}
