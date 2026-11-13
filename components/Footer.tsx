@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="bg-gray-900 text-white py-8">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <p className="font-semibold">
-          © 2026 Centro de Innovación y Ciberseguridad Educativa
+          © 2026 Centro de Investigación en Ciberseguridad Educativa
         </p>
 
         <p className="mt-3">Cel. 317 599 99 93</p>

@@ -1,0 +1,113 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tip_Inst {
+  id_tip_inst Int      @id @default(autoincrement())
+  nombre      String   @unique
+  descripcion String?
+  activo      Boolean  @default(true)
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+}
+
+model Institucion {
+  a_o                      String?
+  secretaria               String?
+  codigodepartamento       String?
+  nombredepartamento       String?
+  codigomunicipio          String?
+  nombremunicipio          String?
+  codigoestablecimiento    String   @id
+  nombreestablecimiento    String?
+  zona                     String?
+  direccion                String?
+  telefono                 String?
+  codigo_etc               String?
+  tipo_establecimiento     String?
+  etnias                   String?
+  sector                   String?
+  genero                   String?
+  niveles                  String?
+  jornada                  String?
+  caracter                 String?
+  especialidad             String?
+  grados                   String?
+  modelos_educativos       String?
+  modelos                  String?
+  discapacidades           String?
+  idiomas                  String?
+  numero_de_sedes          String?
+  estado                   String?
+  prestador_de_servicio    String?
+  propiedad_planta_fisica  String?
+  resguardo                String?
+  matricula_contratada     String?
+  calendario               String?
+  internado                String?
+  estrato_socio_economico  String?
+  correo_electronico      String?
+
+  @@index([codigodepartamento], map: "institucion_departamento_idx")
+  @@index([codigomunicipio], map: "institucion_municipio_idx")
+  @@index([secretaria], map: "institucion_secretaria_idx")
+}
+
+model Rol {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+
+  users       User[]
+}
+
+model User {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name         String
+  email        String
+  passwordHash String
+  telefono     String
+  roleId       Int
+  role         Rol      @relation(fields: [roleId], references: [id])
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+}
+
+model Contacto {
+  id                 String   @id @default(cuid())
+  nombre             String
+  email              String
+  telefono           String
+  organizacion       String?
+  mensaje            String
+  autorizacionDatos  Boolean  @default(false)
+  fechaAutorizacion  DateTime?
+  versionPolitica    String?
+  fechaCreacion      DateTime @default(now())
+  estado             String   @default("NUEVO")
+
+  @@index([email])
+  @@index([fechaCreacion])
+  @@map("contactos")
+}
+
+model AuthChallenge {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  codeHash  String
+  expiresAt DateTime @db.Timestamptz(6)
+  attempts  Int      @default(0)
+  consumedAt DateTime? @db.Timestamptz(6)
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  lastSentAt DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([userId])
+  @@index([expiresAt])
+}

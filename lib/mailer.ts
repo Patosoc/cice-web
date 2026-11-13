@@ -1,4 +1,4 @@
-﻿import * as nodemailer from "nodemailer";
+﻿import * as nodemailer from "cice-mailer";
 
 export async function enviarNotificacionContacto(datos: {
   nombre: string;
@@ -39,3 +39,4 @@ export async function enviarNotificacionContacto(datos: {
     ].join("\n"),
   });
 }
+
