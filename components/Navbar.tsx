@@ -1,8 +1,10 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, LogIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -15,19 +17,27 @@ const secciones = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const esInicio = pathname === "/";
 
   const [activo, setActivo] = useState("inicio");
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(!esInicio);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    if (!esInicio) {
+      setScrolled(true);
+      setActivo("");
+      return;
+    }
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
-
       setScrolled(scrollY > 60);
 
       secciones.forEach((sec) => {
         const el = document.getElementById(sec.id);
+
         if (el) {
           const top = el.offsetTop - 120;
           const height = el.offsetHeight;
@@ -39,25 +49,32 @@ export default function Navbar() {
       });
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [esInicio]);
+
+  const destino = (id: string) =>
+    esInicio ? `#${id}` : `/#${id}`;
+
+  const cerrarMenu = () => setOpen(false);
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500
-          ${scrolled
-            ? "bg-white/90 backdrop-blur-md shadow-md py-2"
-            : "bg-transparent py-6"}
-        `}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-md py-2"
+            : "bg-transparent py-6"
+        }`}
       >
-
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-
-          {/* LOGO */}
-          <a href="#inicio" className="flex items-center gap-3">
-
+          <Link
+            href={esInicio ? "#inicio" : "/#inicio"}
+            onClick={cerrarMenu}
+            className="flex items-center gap-3"
+          >
             <Image
               src="/logo-cice.jpeg"
               alt="CICE"
@@ -68,70 +85,66 @@ export default function Navbar() {
             />
 
             <span
-              className={`font-bold transition-all duration-500
-                ${scrolled
+              className={`font-bold transition-all duration-500 ${
+                scrolled
                   ? "text-lg text-blue-900"
-                  : "text-2xl text-white"}
-              `}
+                  : "text-2xl text-white"
+              }`}
             >
               CICE
             </span>
+          </Link>
 
-          </a>
-
-          {/* MENÚ DESKTOP */}
           <div className="hidden md:flex items-center gap-8">
-
             {secciones.map((sec) => (
-              <a
+              <Link
                 key={sec.id}
-                href={`#${sec.id}`}
-                className={`transition font-medium relative
-                  ${scrolled
-                    ? activo === sec.id
+                href={destino(sec.id)}
+                className={`transition font-medium relative ${
+                  scrolled
+                    ? activo === sec.id && esInicio
                       ? "text-blue-700"
                       : "text-gray-700 hover:text-blue-600"
                     : activo === sec.id
                       ? "text-white"
-                      : "text-white/80 hover:text-white"}
-                `}
+                      : "text-white/80 hover:text-white"
+                }`}
               >
                 {sec.label}
 
-                {activo === sec.id && (
-                  <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-blue-500"></span>
+                {esInicio && activo === sec.id && (
+                  <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-blue-500" />
                 )}
-              </a>
+              </Link>
             ))}
 
-            {/* BOTÓN PORTAL — ESCRITORIO */}
             <Link
               href="/portal/login"
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300
-                ${scrolled
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                scrolled
                   ? "bg-[#0f1f5c] text-white hover:bg-[#1a3180]"
-                  : "bg-[#c9a227] text-[#0a0f1e] hover:bg-[#e8c547]"}
-              `}
+                  : "bg-[#c9a227] text-[#0a0f1e] hover:bg-[#e8c547]"
+              }`}
             >
               <LogIn size={15} />
               Acceder al Portal
             </Link>
-
           </div>
 
-          {/* BOTÓN HAMBURGUESA */}
           <button
+            type="button"
             onClick={() => setOpen(!open)}
-            className="md:hidden text-white"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={open}
+            className={`md:hidden ${
+              scrolled ? "text-blue-950" : "text-white"
+            }`}
           >
             {open ? <X size={28} /> : <Menu size={28} />}
           </button>
-
         </div>
-
       </nav>
 
-      {/* MENÚ MÓVIL */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -141,28 +154,25 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed top-0 left-0 w-full h-screen bg-blue-950/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center gap-8"
           >
-
             {secciones.map((sec) => (
-              <a
+              <Link
                 key={sec.id}
-                href={`#${sec.id}`}
-                onClick={() => setOpen(false)}
+                href={destino(sec.id)}
+                onClick={cerrarMenu}
                 className="text-white text-xl font-semibold hover:text-blue-300 transition"
               >
                 {sec.label}
-              </a>
+              </Link>
             ))}
 
-            {/* BOTÓN PORTAL — MÓVIL */}
             <Link
               href="/portal/login"
-              onClick={() => setOpen(false)}
+              onClick={cerrarMenu}
               className="flex items-center gap-2 px-6 py-3 rounded-lg bg-[#c9a227] text-[#0a0f1e] text-base font-bold hover:bg-[#e8c547] transition-all"
             >
               <LogIn size={18} />
               Acceder al Portal
             </Link>
-
           </motion.div>
         )}
       </AnimatePresence>
